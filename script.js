@@ -1,4 +1,4 @@
-console.log("DataNova — Data Science • AI • Data Engineering");
+console.log("DataNova-Tech — Data Science • AI • Data Engineering");
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector("#main-nav");
