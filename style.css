@@ -406,6 +406,14 @@ nav a:hover {
     line-height: 1.05;
 }
 
+.contact-description {
+    max-width: 650px;
+    margin: 25px auto 35px;
+    color: #9ba3af;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
 .contact-section h2 span {
     color: #61dafb;
     display: block;
