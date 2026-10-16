@@ -2,33 +2,6 @@
 <html lang="fr">
 
 <head>
-    
-<!-- Google Analytics : chargement après consentement -->
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    window.enableDataNovaAnalytics = function () {
-        if (window.dataNovaAnalyticsLoaded) {
-            return;
-        }
-
-        window.dataNovaAnalyticsLoaded = true;
-
-        var script = document.createElement("script");
-        script.async = true;
-        script.src =
-            "https://www.googletagmanager.com/gtag/js?id=G-7P12ZTF2XZ";
-
-        document.head.appendChild(script);
-
-        gtag("js", new Date());
-        gtag("config", "G-7P12ZTF2XZ");
-    };
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -46,6 +19,7 @@
         content="DataNova-Tech, Data Science, Intelligence Artificielle, Data Engineering, Machine Learning, Data Analytics"
     >
 
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="DataNova-Tech | Data Science & AI">
 
     <meta
@@ -58,6 +32,7 @@
     <meta property="og:site_name" content="DataNova-Tech">
     <meta property="og:type" content="website">
 
+    <!-- TWITTER -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DataNova-Tech | Data Science & AI">
 
@@ -68,10 +43,39 @@
 
     <meta name="twitter:image" content="https://datanova-tech.fr/og-image.png">
 
+    <!-- ICONES ET STYLES -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="canonical" href="https://datanova-tech.fr/">
     <link rel="stylesheet" href="style.css">
 
+    <!-- GOOGLE ANALYTICS : CHARGEMENT APRES CONSENTEMENT -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        window.enableDataNovaAnalytics = function () {
+            if (window.dataNovaAnalyticsLoaded) {
+                return;
+            }
+
+            window.dataNovaAnalyticsLoaded = true;
+
+            var script = document.createElement("script");
+            script.async = true;
+            script.src =
+                "https://www.googletagmanager.com/gtag/js?id=G-7P12ZTF2XZ";
+
+            document.head.appendChild(script);
+
+            gtag("js", new Date());
+            gtag("config", "G-7P12ZTF2XZ");
+        };
+    </script>
+
+    <!-- DONNEES STRUCTUREES -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -84,55 +88,9 @@
             "telephone": "+33753861140"
         }
     </script>
+
 </head>
-    
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
-<div id="cookie-banner" class="cookie-banner" hidden>
-    <div class="cookie-content">
-        <p>
-            Nous utilisons Google Analytics pour mesurer
-            l'audience de DataNova-Tech, uniquement avec
-            votre consentement.
-            Vous pouvez accepter ou refuser ces cookies.
-        </p>
 
-        <div class="cookie-actions">
-            <button type="button" id="cookie-reject">
-                Refuser
-            </button>
-
-            <button type="button" id="cookie-accept">
-                Accepter
-            </button>
-        </div>
-    </div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const banner = document.getElementById("cookie-banner");
-        const accept = document.getElementById("cookie-accept");
-        const reject = document.getElementById("cookie-reject");
-
-        const consent = localStorage.getItem("datanova-analytics-consent");
-
-        if (consent === "accepted") {
-            window.enableDataNovaAnalytics();
-        } else if (consent !== "rejected") {
-            banner.hidden = false;
-        }
-
-        accept.addEventListener("click", function () {
-            localStorage.setItem("datanova-analytics-consent", "accepted");
-            window.enableDataNovaAnalytics();
-            banner.hidden = true;
-        });
-
-        reject.addEventListener("click", function () {
-            localStorage.setItem("datanova-analytics-consent", "rejected");
-            banner.hidden = true;
-        });
-    });
-</script>
 <body>
 
     <!-- NAVIGATION -->
@@ -151,7 +109,9 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <a href="#contact" class="nav-button">Collaborer</a>
+        <a href="#contact" class="nav-button">
+            Collaborer
+        </a>
 
         <button
             class="menu-toggle"
@@ -167,9 +127,9 @@
 
     </header>
 
-    <!-- HERO -->
     <main>
 
+        <!-- HERO -->
         <section class="hero">
 
             <div class="hero-content">
@@ -266,9 +226,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="card-number">01</div>
 
                     <h3>Data Science</h3>
 
@@ -282,9 +240,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        02
-                    </div>
+                    <div class="card-number">02</div>
 
                     <h3>Artificial Intelligence</h3>
 
@@ -298,9 +254,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        03
-                    </div>
+                    <div class="card-number">03</div>
 
                     <h3>Data Engineering</h3>
 
@@ -314,9 +268,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        04
-                    </div>
+                    <div class="card-number">04</div>
 
                     <h3>Data Analytics</h3>
 
@@ -344,9 +296,7 @@
 
                 <article class="service-card">
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="card-number">01</div>
 
                     <h3>Analyse des données</h3>
 
@@ -360,9 +310,7 @@
 
                 <article class="service-card">
 
-                    <div class="card-number">
-                        02
-                    </div>
+                    <div class="card-number">02</div>
 
                     <h3>Prévision et aide à la décision</h3>
 
@@ -376,9 +324,7 @@
 
                 <article class="service-card">
 
-                    <div class="card-number">
-                        03
-                    </div>
+                    <div class="card-number">03</div>
 
                     <h3>Automatisation des processus</h3>
 
@@ -392,9 +338,7 @@
 
                 <article class="service-card">
 
-                    <div class="card-number">
-                        04
-                    </div>
+                    <div class="card-number">04</div>
 
                     <h3>Dashboards & reporting</h3>
 
@@ -408,9 +352,7 @@
 
                 <article class="service-card">
 
-                    <div class="card-number">
-                        05
-                    </div>
+                    <div class="card-number">05</div>
 
                     <h3>Pipelines de données</h3>
 
@@ -424,9 +366,7 @@
 
                 <article class="service-card">
 
-                    <div class="card-number">
-                        06
-                    </div>
+                    <div class="card-number">06</div>
 
                     <h3>Solutions d'intelligence artificielle</h3>
 
@@ -454,9 +394,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        01
-                    </div>
+                    <div class="card-number">01</div>
 
                     <h3>Comprendre</h3>
 
@@ -469,9 +407,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        02
-                    </div>
+                    <div class="card-number">02</div>
 
                     <h3>Préparer</h3>
 
@@ -484,9 +420,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        03
-                    </div>
+                    <div class="card-number">03</div>
 
                     <h3>Analyser</h3>
 
@@ -500,9 +434,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        04
-                    </div>
+                    <div class="card-number">04</div>
 
                     <h3>Développer</h3>
 
@@ -516,9 +448,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        05
-                    </div>
+                    <div class="card-number">05</div>
 
                     <h3>Évaluer</h3>
 
@@ -532,9 +462,7 @@
 
                 <article class="card">
 
-                    <div class="card-number">
-                        06
-                    </div>
+                    <div class="card-number">06</div>
 
                     <h3>Livrer</h3>
 
@@ -819,7 +747,82 @@
 
     </footer>
 
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
+    <div
+        id="cookie-banner"
+        class="cookie-banner"
+        role="region"
+        aria-label="Préférences de confidentialité"
+        hidden
+    >
+
+        <div class="cookie-content">
+
+            <p>
+                Nous utilisons Google Analytics pour mesurer
+                l'audience de DataNova-Tech, uniquement avec
+                votre consentement.
+                Vous pouvez accepter ou refuser ces cookies.
+            </p>
+
+            <div class="cookie-actions">
+
+                <button type="button" id="cookie-reject">
+                    Refuser
+                </button>
+
+                <button type="button" id="cookie-accept">
+                    Accepter
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPT PRINCIPAL -->
     <script src="script.js"></script>
+
+    <!-- GESTION DU CONSENTEMENT -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const banner = document.getElementById("cookie-banner");
+            const accept = document.getElementById("cookie-accept");
+            const reject = document.getElementById("cookie-reject");
+
+            const consent = localStorage.getItem(
+                "datanova-analytics-consent"
+            );
+
+            if (consent === "accepted") {
+                window.enableDataNovaAnalytics();
+            } else if (consent !== "rejected") {
+                banner.hidden = false;
+            }
+
+            accept.addEventListener("click", function () {
+                localStorage.setItem(
+                    "datanova-analytics-consent",
+                    "accepted"
+                );
+
+                window.enableDataNovaAnalytics();
+                banner.hidden = true;
+            });
+
+            reject.addEventListener("click", function () {
+                localStorage.setItem(
+                    "datanova-analytics-consent",
+                    "rejected"
+                );
+
+                banner.hidden = true;
+            });
+
+        });
+    </script>
 
 </body>
 
