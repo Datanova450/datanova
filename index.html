@@ -2,19 +2,33 @@
 <html lang="fr">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7P12ZTF2XZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+    
+<!-- Google Analytics : chargement après consentement -->
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    window.enableDataNovaAnalytics = function () {
+        if (window.dataNovaAnalyticsLoaded) {
+            return;
         }
 
-        gtag('js', new Date());
-        gtag('config', 'G-7P12ZTF2XZ');
-    </script>
+        window.dataNovaAnalyticsLoaded = true;
 
+        var script = document.createElement("script");
+        script.async = true;
+        script.src =
+            "https://www.googletagmanager.com/gtag/js?id=G-7P12ZTF2XZ";
+
+        document.head.appendChild(script);
+
+        gtag("js", new Date());
+        gtag("config", "G-7P12ZTF2XZ");
+    };
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -71,7 +85,54 @@
         }
     </script>
 </head>
+    
+<!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
+<div id="cookie-banner" class="cookie-banner" hidden>
+    <div class="cookie-content">
+        <p>
+            Nous utilisons Google Analytics pour mesurer
+            l'audience de DataNova-Tech, uniquement avec
+            votre consentement.
+            Vous pouvez accepter ou refuser ces cookies.
+        </p>
 
+        <div class="cookie-actions">
+            <button type="button" id="cookie-reject">
+                Refuser
+            </button>
+
+            <button type="button" id="cookie-accept">
+                Accepter
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.getElementById("cookie-banner");
+        const accept = document.getElementById("cookie-accept");
+        const reject = document.getElementById("cookie-reject");
+
+        const consent = localStorage.getItem("datanova-analytics-consent");
+
+        if (consent === "accepted") {
+            window.enableDataNovaAnalytics();
+        } else if (consent !== "rejected") {
+            banner.hidden = false;
+        }
+
+        accept.addEventListener("click", function () {
+            localStorage.setItem("datanova-analytics-consent", "accepted");
+            window.enableDataNovaAnalytics();
+            banner.hidden = true;
+        });
+
+        reject.addEventListener("click", function () {
+            localStorage.setItem("datanova-analytics-consent", "rejected");
+            banner.hidden = true;
+        });
+    });
+</script>
 <body>
 
     <!-- NAVIGATION -->
