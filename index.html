@@ -57,6 +57,7 @@
         }
 
         window.enableDataNovaAnalytics = function () {
+
             if (window.dataNovaAnalyticsLoaded) {
                 return;
             }
@@ -72,6 +73,7 @@
 
             gtag("js", new Date());
             gtag("config", "G-7P12ZTF2XZ");
+
         };
     </script>
 
@@ -610,6 +612,7 @@
 
                 <p>
                     <strong>Email :</strong>
+
                     <a href="mailto:mamadou_korka.bah19@gmail.com">
                         mamadou_korka.bah19@gmail.com
                     </a>
@@ -617,6 +620,7 @@
 
                 <p>
                     <strong>Téléphone :</strong>
+
                     <a href="tel:+33753861140">
                         +33 7 53 86 11 40
                     </a>
@@ -666,6 +670,7 @@
                     name="service"
                     required
                 >
+
                     <option value="" disabled selected>
                         Sélectionnez un service
                     </option>
@@ -689,6 +694,7 @@
                     <option value="Autre">
                         Autre demande
                     </option>
+
                 </select>
 
                 <label for="contact-message">
@@ -745,6 +751,18 @@
             © 2026 DataNova-Tech. Tous droits réservés.
         </p>
 
+        <p class="footer-privacy">
+
+            <button
+                type="button"
+                id="manage-cookies"
+                class="manage-cookies-button"
+            >
+                Gérer les cookies
+            </button>
+
+        </p>
+
     </footer>
 
     <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
@@ -767,11 +785,17 @@
 
             <div class="cookie-actions">
 
-                <button type="button" id="cookie-reject">
+                <button
+                    type="button"
+                    id="cookie-reject"
+                >
                     Refuser
                 </button>
 
-                <button type="button" id="cookie-accept">
+                <button
+                    type="button"
+                    id="cookie-accept"
+                >
                     Accepter
                 </button>
 
@@ -791,35 +815,68 @@
             const banner = document.getElementById("cookie-banner");
             const accept = document.getElementById("cookie-accept");
             const reject = document.getElementById("cookie-reject");
+            const manageCookies = document.getElementById("manage-cookies");
 
             const consent = localStorage.getItem(
                 "datanova-analytics-consent"
             );
 
+            // VERIFIER LE CONSENTEMENT ENREGISTRE
             if (consent === "accepted") {
+
+                window["ga-disable-G-7P12ZTF2XZ"] = false;
                 window.enableDataNovaAnalytics();
-            } else if (consent !== "rejected") {
-                banner.hidden = false;
+
+            } else {
+
+                window["ga-disable-G-7P12ZTF2XZ"] = true;
+
+                if (consent !== "rejected") {
+                    banner.hidden = false;
+                }
+
             }
 
+            // ACCEPTER LES COOKIES
             accept.addEventListener("click", function () {
+
                 localStorage.setItem(
                     "datanova-analytics-consent",
                     "accepted"
                 );
 
+                window["ga-disable-G-7P12ZTF2XZ"] = false;
+
                 window.enableDataNovaAnalytics();
+
                 banner.hidden = true;
+
             });
 
+            // REFUSER LES COOKIES
             reject.addEventListener("click", function () {
+
                 localStorage.setItem(
                     "datanova-analytics-consent",
                     "rejected"
                 );
 
+                window["ga-disable-G-7P12ZTF2XZ"] = true;
+
                 banner.hidden = true;
+
             });
+
+            // ROUVRIR LE BANDEAU DE COOKIES
+            if (manageCookies) {
+
+                manageCookies.addEventListener("click", function () {
+
+                    banner.hidden = false;
+
+                });
+
+            }
 
         });
     </script>
