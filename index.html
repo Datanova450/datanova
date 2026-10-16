@@ -867,6 +867,17 @@
 
             });
 
+                localStorage.setItem(
+                    "datanova-analytics-consent",
+                    "rejected"
+                );
+
+                window["ga-disable-G-7P12ZTF2XZ"] = true;
+
+                banner.hidden = true;
+
+            });
+
             // ROUVRIR LE BANDEAU DE COOKIES
             if (manageCookies) {
 
