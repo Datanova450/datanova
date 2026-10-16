@@ -66,8 +66,7 @@
 
             var script = document.createElement("script");
             script.async = true;
-            script.src =
-                "https://www.googletagmanager.com/gtag/js?id=G-7P12ZTF2XZ";
+            script.src = "https://www.googletagmanager.com/gtag/js?id=G-7P12ZTF2XZ";
 
             document.head.appendChild(script);
 
@@ -861,19 +860,47 @@
                     "rejected"
                 );
 
+                // Désactiver Google Analytics
                 window["ga-disable-G-7P12ZTF2XZ"] = true;
 
-                banner.hidden = true;
+                // Supprimer les cookies Google Analytics
+                const hostname = window.location.hostname;
+                const domains = [""];
 
-            });
+                const parts = hostname.split(".");
 
-                localStorage.setItem(
-                    "datanova-analytics-consent",
-                    "rejected"
-                );
+                for (let i = 0; i < parts.length - 1; i++) {
 
-                window["ga-disable-G-7P12ZTF2XZ"] = true;
+                    domains.push(
+                        "." + parts.slice(i).join(".")
+                    );
 
+                }
+
+                document.cookie.split(";").forEach(function (cookie) {
+
+                    const name = cookie.split("=")[0].trim();
+
+                    if (name === "_ga" || name.startsWith("_ga_")) {
+
+                        domains.forEach(function (domain) {
+
+                            const domainAttribute = domain
+                                ? "; domain=" + domain
+                                : "";
+
+                            document.cookie =
+                                name +
+                                "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" +
+                                domainAttribute;
+
+                        });
+
+                    }
+
+                });
+
+                // Fermer le bandeau
                 banner.hidden = true;
 
             });
