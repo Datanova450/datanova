@@ -685,3 +685,182 @@ footer p {
         text-align: center;
     }
 }
+
+/* =========================================
+   DATANOVA-TECH — FORMULAIRE DE CONTACT
+   ========================================= */
+
+.contact-section .contact-form {
+    width: 100%;
+    max-width: 760px;
+    margin: 40px auto 30px;
+    padding: 38px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 22px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(100, 220, 235, 0.18);
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+.contact-form label {
+    display: block;
+    margin: 0;
+    color: #e6f0f5;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* Positionnement des champs */
+
+.contact-form label[for="contact-name"] {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.contact-form #contact-name {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.contact-form label[for="contact-email"] {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.contact-form #contact-email {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.contact-form label[for="contact-service"] {
+    grid-column: 1 / -1;
+    grid-row: 3;
+}
+
+.contact-form #contact-service {
+    grid-column: 1 / -1;
+    grid-row: 4;
+}
+
+.contact-form label[for="contact-message"] {
+    grid-column: 1 / -1;
+    grid-row: 5;
+}
+
+.contact-form #contact-message {
+    grid-column: 1 / -1;
+    grid-row: 6;
+}
+
+/* Champs du formulaire */
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 15px 17px;
+    border: 1px solid #344b58;
+    border-radius: 9px;
+    background: #1c2a34;
+    color: #ffffff;
+    font: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    outline: none;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #a1b1bd;
+    opacity: 1;
+}
+
+.contact-form textarea {
+    min-height: 155px;
+    resize: vertical;
+}
+
+.contact-form select {
+    cursor: pointer;
+    color-scheme: dark;
+}
+
+/* Effet au clic */
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #65ddeb;
+    box-shadow: 0 0 0 3px rgba(101, 221, 235, 0.15);
+}
+
+/* Bouton d'envoi */
+
+.contact-section .contact-form button[type="submit"] {
+    grid-column: 1 / -1;
+    grid-row: 7;
+    width: 100%;
+    min-height: 52px;
+    margin-top: 10px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 9px;
+    background: #65ddeb;
+    color: #0d2029;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.contact-section .contact-form button[type="submit"]:hover {
+    background: #8aeaf3;
+    transform: translateY(-2px);
+}
+
+.contact-section .contact-form button[type="submit"]:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Version mobile */
+
+@media (max-width: 650px) {
+    .contact-section .contact-form {
+        grid-template-columns: 1fr;
+        padding: 22px 18px;
+        margin: 28px auto;
+        gap: 12px;
+    }
+
+    .contact-form label,
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea,
+    .contact-section .contact-form button[type="submit"] {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    .contact-form label {
+        margin-top: 6px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 16px;
+    }
+}
+
